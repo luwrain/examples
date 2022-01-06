@@ -1,12 +1,7 @@
-package org.luwrain.app.vk2
+
+package org.luwrain.app.tutorial01
 
 class Strings
 {
-fun appName(): String { return "ВКонтакте" }
-fun actionFriends(): String { return "Друзья" }
-
-
-fun friendsAreaName(): String { return "Друзья" }
-
-fun wallAreaName(): String { return "ВКонтакте" }
+    fun appName(): String { return "Hello, world!" }
 }
