@@ -1,0 +1,40 @@
+
+plugins {
+    // Apply the java-library plugin for API and implementation separation.
+    id 'java-library'
+id 'java-library-distribution'
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+// dependencies on main luwrain jars
+// the lines below will be uncommented when luwrain jars are in maven
+//compileOnly 'org.luwrain:luwrain-base:1.9.02'
+//compileOnly 'org.luwrain:luwrain:1.9.02'
+// now we need to declare this dependencies as local files
+compileOnly files('lib/luwrain.jar','lib/luwrain-base.jar')
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+tasks.named('jar') {
+manifest {
+attributes('Extensions': 'org.luwrain.app.example.Extension', 'org/luwrain')
+}
+}
+
+distributions {
+    main {
+        distributionBaseName = 'luwrain-app-example'
+}
+}
